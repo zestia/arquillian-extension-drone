@@ -116,6 +116,9 @@ public class ChromeDriverBinaryHandler extends AbstractBinaryHandler {
             final StringBuilder fileName = new StringBuilder("chromedriver_");
             if (PlatformUtils.isMac()) {
                 fileName.append("mac");
+                if (PlatformUtils.isMacAppleSilicon()) {
+                    fileName.append("_arm");
+                }
             } else if (PlatformUtils.isWindows()) {
                 fileName.append("win");
             } else if (PlatformUtils.isUnix()) {
